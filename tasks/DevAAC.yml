@@ -1,7 +1,7 @@
 ---
 - name: Clone DevAAC from git
   git:
-    repo: https://github.com/DevelopersPL/DevAAC.git
+    repo: https://github.com/justots/DevAAC.git
     dest: /home/otsmanager/www
   become: true
   become_user: otsmanager
