@@ -18,7 +18,7 @@
 
 - name: Download latest TFS from git
   git:
-    repo: https://github.com/otland/forgottenserver.git
+    repo: https://github.com/justots/forgottenserver.git
     dest: /home/otsmanager/forgottenserver
   become: true
   become_user: otsmanager
