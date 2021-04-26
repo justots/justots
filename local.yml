@@ -29,6 +29,11 @@
         name: php7.2-fpm
         state: restarted
 
+    - name: restart php7.4-fpm
+      service:
+        name: php7.4-fpm
+        state: restarted
+
     - name: restart mysql
       service:
         name: mysql
@@ -64,6 +69,10 @@
 
     - include: tasks/php7.2-fpm.yml
       when: ansible_distribution_major_version|int >= 18
+      tags: default
+
+    - include: tasks/php7.4-fpm.yml
+      when: ansible_distribution_major_version|int >= 20
       tags: default
 
     - include: tasks/nginx.yml
