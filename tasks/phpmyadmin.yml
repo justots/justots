@@ -63,6 +63,13 @@
     dest: /etc/nginx/sites-available/phpmyadmin
   when: ansible_distribution_major_version|int == 18
   notify: restart nginx
+  
+  - name: Copy nginx configuration for phpmyadmin vhost (PHP 7.4)
+  template:
+    src: templates/phpmyadmin-vhost-php74.conf
+    dest: /etc/nginx/sites-available/phpmyadmin
+  when: ansible_distribution_major_version|int == 20
+  notify: restart nginx
 
 - name: Enable phpmyadmin vhost
   file:
