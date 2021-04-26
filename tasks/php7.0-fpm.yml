@@ -9,8 +9,14 @@
       - php-curl
       - php-xml
       - php-mbstring
-      - php-gettext
       - composer
+
+- name: Install PHP gettext < 20
+  apt:
+    state: latest
+    pkg:
+      - php-gettext
+  when: ansible_distribution_major_version|int < 20
 
 - name: Set php.ini display_errors
   lineinfile:
