@@ -4,8 +4,21 @@
     state: latest
     pkg:
       - mariadb-server
-      - python-mysqldb
       - automysqlbackup
+
+- name: Install MySQL python < 18
+  apt:
+    state: latest
+    pkg:
+      - python-mysqldb
+  when: ansible_distribution_major_version|int < 18
+
+- name: Install MySQL python > 18
+  apt:
+    state: latest
+    pkg:
+      - python3-mysqldb
+  when: ansible_distribution_major_version|int > 18
 
 - name: Change MySQL charset to prevent MySQL error 1709
   template:
