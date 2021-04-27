@@ -13,7 +13,7 @@ A script to run on a standalone machine to provision it. If user "otsmanager" do
 #!/bin/bash -ex
 apt-get update
 apt-get install -y -q python-simplejson git-core ansible aptitude
-ansible-pull -i localhost, -U https://github.com/justots/justots.git -d /srv/justots --purge
+ansible-pull -i localhost, -U https://github.com/justots/justots.git -d /srv/justots --purge 2>&1 | tee /home/output.txt
 ```
 
 A cloud-init script to provision cloud instances with otshosting:
