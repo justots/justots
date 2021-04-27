@@ -24,7 +24,7 @@
       - curl
  
 - name: Generate random Otsmanager user password
-  command: openssl rand -base64 16
+  command: openssl rand -base64 32
   register: otsmanagerpass 
  
 - name: Create otsmanager system user
