@@ -23,10 +23,14 @@
       - p7zip
       - curl
  
+- name: Generate random Otsmanager user password
+  command: openssl rand -base64 32
+  register: otsmanagerpass 
+ 
 - name: Create otsmanager system user
   user:
     name: otsmanager
-    password: "{{ 'justots123' | password_hash('sha512') }}"
+    password: "{{otsmanagerpass.stdout}}"
     update_password: on_create
     shell: /bin/bash
     groups: systemd-journal
