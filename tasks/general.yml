@@ -24,13 +24,13 @@
       - curl
  
 - name: Generate random Otsmanager user password
-  command: openssl rand -base64 32
+  command: openssl rand -base64 16
   register: otsmanagerpass 
  
 - name: Create otsmanager system user
   user:
     name: otsmanager
-    password: "{{otsmanagerpass.stdout}}"
+    password: "{{ otsmanagerpass.stdout | password_hash('sha512') }}"
     update_password: on_create
     shell: /bin/bash
     groups: systemd-journal
