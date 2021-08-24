@@ -8,6 +8,12 @@ __It works with Ubuntu versions with systemd -> Ubuntu >= 15.04__
 
 Make sure to have universe, multiverse and restricted repositories enabled
 
+```
+./setup justots
+```
+
+or
+
 A script to run on a standalone machine to provision it. If user "otsmanager" does not exist, it will be created with password: "otsmanager".
 ```bash
 #!/bin/bash -ex
