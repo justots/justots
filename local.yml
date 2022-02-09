@@ -91,6 +91,3 @@
       tags: tfs-old
 
     - include: tasks/general-last.yml
-
-    - include: tasks/wine.yml
-      tags: wine
